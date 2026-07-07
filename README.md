@@ -149,6 +149,15 @@ Database
 
 ---
 
+## Design Decisions
+
+- Used a Service Layer to keep controllers thin and business logic reusable.
+- Used Queue Jobs to process large CSV imports asynchronously.
+- Used batch inserts to improve database performance.
+- Duplicate detection is based on a generated fingerprint from company name, email, and phone number.
+- CSV exports are streamed to minimize memory usage.
+- Feature tests verify the core API endpoints.
+
 ## Performance Optimizations
 
 - Queue based processing
